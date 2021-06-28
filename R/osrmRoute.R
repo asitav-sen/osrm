@@ -198,8 +198,10 @@ osrmRoute <- function(src, dst, loc, overview = "simplified", exclude = NULL,
       if(returnclass=="sp"){
         rosf <- methods::as(rosf, "Spatial")
       }
+      Sys.sleep(1)
       return(rosf)
     }
+    Sys.sleep(1)
     return(geodf)
   }, error=function(e) {message("The OSRM server returned an error:\n", e)})
   return(NULL)
