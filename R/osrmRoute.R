@@ -121,7 +121,7 @@ osrmRoute <- function(src, dst, loc, overview = "simplified", exclude = NULL,
                  "route/v1/", 
                  osrm.profile, "/", 
                  src$lon, ",", src$lat, ";", dst$lon, ",", dst$lat, 
-                 "?alternatives=false&geometries=polyline&steps=false&overview=",
+                 "?alternatives=true&geometries=polyline&steps=false&overview=",
                  tolower(overview), exclude_str, sep="")
   }else{
     # from src to dst via x, y, z... (data.frame or sf input)
@@ -136,7 +136,7 @@ osrmRoute <- function(src, dst, loc, overview = "simplified", exclude = NULL,
                  paste0(apply(data.frame(loc$lon, loc$lat), 
                               MARGIN = 1, FUN = paste0, collapse=","),
                         collapse=";"),
-                 "?alternatives=false&geometries=polyline&steps=false&overview=",
+                 "?alternatives=true&geometries=polyline&steps=false&overview=",
                  tolower(overview), exclude_str, sep="")
   }  
   # print(req)
